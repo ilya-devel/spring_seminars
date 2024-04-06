@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: seminar_04_homeworks
+
+server:
+  servlet:
+    contextPath: /
