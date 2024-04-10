@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Домашняя работа</title>
+    <script src="bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+</head>
+<body>
+    <div class="text-center container-sm mt-5">
+        <p class="h1">Привет всем!</p>
+        <p>Укажите свои данные в форме ниже, чтобы участвовать в розыгрыше призов</p>
+
+        <form th:action="@{/}" th:object="${user}" th:method="post">
+            <div class="row">
+                <div class="mb-3 col">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName">
+                </div>
+                <div class="mb-3 col">
+                    <label for="secondName" class="form-label">Second Name</label>
+                    <input type="text" class="form-control" id="secondName" name="secondName">
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3 col">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" id="age" name="age" class="form-control" min="1">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить участника</button>
+        </form>
+
+        <div class="users mt-5" th:switch="${#lists.isEmpty(users)}">
+            <p class="h2" th:case="true">Пользователей ещё не добавлено</p>
+            <div th:case="*">
+                <h2 class="text-center">Users</h2>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="user : ${users}">
+                        <td><a th:href="@{/user/{id}(id=${user.id})}" th:text="${user.firstName}"></a></td>
+<!--                        <td><a th:href="@{user-update/{id}(id=${user.id})}">Edit</a></td>-->
+                        <td th:text="${user.secondName}"></td>
+                        <td th:text="${user.age}"></td>
+                        <td th:text="${user.email}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
