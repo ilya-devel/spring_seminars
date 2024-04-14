@@ -1,0 +1,4 @@
+INSERT INTO tasks VALUES (
+    ('Test task'),
+    ('Test task'),
+);
