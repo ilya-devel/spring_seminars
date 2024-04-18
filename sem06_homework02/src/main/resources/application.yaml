@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: sem06_homework02
+default:
+  url: https://rickandmortyapi.com/api/character
