@@ -35,3 +35,6 @@ build/
 
 ### DataStore ###
 db/
+
+### FILES ###
+*.class
