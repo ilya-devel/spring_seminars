@@ -25,6 +25,11 @@
         <main>
             <p class="h1">Hello Everyone</p>
 
+            <div th:if="${username}">
+                <p class="h3" th:text="${username}"></p>
+            </div>
+
+
             <div class="mt-5 d-flex flex-column">
                 <p class="h2">Access test</p>
                 <a href="/private-data">Only admin</a>

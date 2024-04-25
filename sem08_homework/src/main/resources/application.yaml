@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: sem08_homework
+  datasource:
+    url: jdbc:postgresql://localhost:5432/homework_08
+    username: ilya-devel
+    password: some_password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

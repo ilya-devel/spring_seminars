@@ -1,7 +1,13 @@
 package ru.gb.sem07_homework01.controllers;
 
+import java.security.Principal;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import jakarta.servlet.http.HttpServletRequest;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -9,7 +15,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
 
     @GetMapping("/")
-    public String indexPage() {
+    public String indexPage(final HttpServletRequest request, Principal principal, Model model) {
+        if (principal != null) {
+            model.addAttribute("username", principal.getName());
+        }
         return new String("index.html");
     }
 
