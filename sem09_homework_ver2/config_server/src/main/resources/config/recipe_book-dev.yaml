@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: recipe_book
+  datasource:
+    url: jdbc:postgresql://localhost:5432/homework_09
+    username: ilya-devel
+    password: some_password
