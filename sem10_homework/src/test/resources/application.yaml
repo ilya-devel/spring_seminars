@@ -1,0 +1,14 @@
+spring:
+    application:
+        name: sem10_homework
+    datasource:
+        url: jdbc:h2:mem:mydb
+        username: ilya-devel
+        password: password
+        driver-class-name: org.h2.Driver
+    jpa:
+        properties:
+            hibernate.dialect: org.hibernate.dialect.H2Dialect
+        hibernate:
+            ddl-auto: update
+        show-sql: true

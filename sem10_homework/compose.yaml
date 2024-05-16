@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  postgres:
+    image: 'postgres:14.8-alpine3.18'
+    environment:
+      - 'POSTGRES_DB=sem10_homework'
+      - 'POSTGRES_PASSWORD=password'
+      - 'POSTGRES_USER=ilya-devel'
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+      - ./db:/var/lib/postgresql/data
+    ports:
+      - '5432'
